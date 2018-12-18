@@ -48,6 +48,7 @@ input:
 25. [`sqs`](#sqs)
 26. [`stdin`](#stdin)
 27. [`websocket`](#websocket)
+28. [`you_zan_nsq`](#you_zan_nsq)
 
 ## `amqp`
 
@@ -1080,3 +1081,19 @@ Connects to a websocket server and continuously receives messages.
 It is possible to configure an `open_message`, which when set to a
 non-empty string will be sent to the websocket server each time a connection is
 first established.
+
+## `you_zan_nsq`
+
+``` yaml
+type: you_zan_nsq
+you_zan_nsq:
+  channel: benthos_stream
+  enable_ordered: false
+  lookupd_http_addresses:
+  - localhost:4161
+  max_in_flight: 100
+  topic: benthos_messages
+  user_agent: benthos_consumer
+```
+
+Subscribe to an YouZan NSQ instance topic and channel.

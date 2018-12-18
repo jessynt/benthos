@@ -91,6 +91,7 @@ a [`broker`](#broker) output with the 'try' pattern.
 32. [`switch`](#switch)
 33. [`sync_response`](#sync_response)
 34. [`websocket`](#websocket)
+35. [`youzan_nsq`](#youzan_nsq)
 
 ## `amqp`
 
@@ -1161,3 +1162,19 @@ websocket:
 ```
 
 Sends messages to an HTTP server via a websocket connection.
+
+## `youzan_nsq`
+
+``` yaml
+type: youzan_nsq
+youzan_nsq:
+  enable_ordered: false
+  lookupd_http_addresses: localhost:4161
+  topic: benthos_messages
+  user_agent: benthos_producer
+```
+
+Publish to an YouZan NSQ topic. The `topic` field can be dynamically set
+using function interpolations described
+[here](../config_interpolation.md#functions). When sending batched messages
+these interpolations are performed per message part.

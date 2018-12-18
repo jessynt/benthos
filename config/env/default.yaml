@@ -287,6 +287,14 @@ input:
           request_url: ${INPUT_WEBSOCKET_OAUTH_REQUEST_URL}
         open_message: ${INPUT_WEBSOCKET_OPEN_MESSAGE}
         url: ${INPUT_WEBSOCKET_URL:ws://localhost:4195/get/ws}
+      you_zan_nsq:
+        channel: ${INPUT_YOU_ZAN_NSQ_CHANNEL:benthos_stream}
+        enable_ordered: ${INPUT_YOU_ZAN_NSQ_ENABLE_ORDERED:false}
+        lookupd_http_addresses:
+        - ${INPUT_YOU_ZAN_NSQ_LOOKUPD_HTTP_ADDRESSES:localhost:4161}
+        max_in_flight: ${INPUT_YOU_ZAN_NSQ_MAX_IN_FLIGHT:100}
+        topic: ${INPUT_YOU_ZAN_NSQ_TOPIC:benthos_messages}
+        user_agent: ${INPUT_YOU_ZAN_NSQ_USER_AGENT:benthos_consumer}
   type: broker
 buffer:
   memory:
@@ -726,6 +734,11 @@ output:
           enabled: ${OUTPUT_WEBSOCKET_OAUTH_ENABLED:false}
           request_url: ${OUTPUT_WEBSOCKET_OAUTH_REQUEST_URL}
         url: ${OUTPUT_WEBSOCKET_URL:ws://localhost:4195/post/ws}
+      youzan_nsq:
+        enable_ordered: ${OUTPUT_YOUZAN_NSQ_ENABLE_ORDERED:false}
+        lookupd_http_addresses: ${OUTPUT_YOUZAN_NSQ_LOOKUPD_HTTP_ADDRESSES:localhost:4161}
+        topic: ${OUTPUT_YOUZAN_NSQ_TOPIC:benthos_messages}
+        user_agent: ${OUTPUT_YOUZAN_NSQ_USER_AGENT:benthos_producer}
     pattern: ${OUTPUTS_PATTERN:greedy}
   type: broker
 logger:

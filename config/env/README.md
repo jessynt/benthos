@@ -274,6 +274,12 @@ INPUT_WEBSOCKET_OAUTH_ENABLED                       = false
 INPUT_WEBSOCKET_OAUTH_REQUEST_URL
 INPUT_WEBSOCKET_OPEN_MESSAGE
 INPUT_WEBSOCKET_URL                                 = ws://localhost:4195/get/ws
+INPUT_YOU_ZAN_NSQ_CHANNEL                           = benthos_stream
+INPUT_YOU_ZAN_NSQ_ENABLE_ORDERED                    = false
+INPUT_YOU_ZAN_NSQ_LOOKUPD_HTTP_ADDRESSES            = localhost:4161
+INPUT_YOU_ZAN_NSQ_MAX_IN_FLIGHT                     = 100
+INPUT_YOU_ZAN_NSQ_TOPIC                             = benthos_messages
+INPUT_YOU_ZAN_NSQ_USER_AGENT                        = benthos_consumer
 ```
 
 ## BUFFER
@@ -614,6 +620,10 @@ OUTPUT_WEBSOCKET_OAUTH_CONSUMER_SECRET
 OUTPUT_WEBSOCKET_OAUTH_ENABLED                        = false
 OUTPUT_WEBSOCKET_OAUTH_REQUEST_URL
 OUTPUT_WEBSOCKET_URL                                  = ws://localhost:4195/post/ws
+OUTPUT_YOUZAN_NSQ_ENABLE_ORDERED                      = false
+OUTPUT_YOUZAN_NSQ_LOOKUPD_HTTP_ADDRESSES              = localhost:4161
+OUTPUT_YOUZAN_NSQ_TOPIC                               = benthos_messages
+OUTPUT_YOUZAN_NSQ_USER_AGENT                          = benthos_producer
 ```
 
 ## LOGGER

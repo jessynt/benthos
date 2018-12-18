@@ -1,0 +1,59 @@
+{
+	"http": {
+		"address": "0.0.0.0:4195",
+		"read_timeout": "5s",
+		"root_path": "/benthos",
+		"debug_endpoints": false
+	},
+	"input": {
+		"type": "you_zan_nsq",
+		"you_zan_nsq": {
+			"channel": "benthos_stream",
+			"enable_ordered": false,
+			"lookupd_http_addresses": [
+				"localhost:4161"
+			],
+			"max_in_flight": 100,
+			"topic": "benthos_messages",
+			"user_agent": "benthos_consumer"
+		}
+	},
+	"buffer": {
+		"type": "none",
+		"none": {}
+	},
+	"pipeline": {
+		"processors": [],
+		"threads": 1
+	},
+	"output": {
+		"type": "stdout",
+		"stdout": {
+			"delimiter": ""
+		}
+	},
+	"resources": {
+		"caches": {},
+		"conditions": {},
+		"rate_limits": {}
+	},
+	"logger": {
+		"prefix": "benthos",
+		"level": "INFO",
+		"add_timestamp": true,
+		"json_format": true,
+		"static_fields": {
+			"@service": "benthos"
+		}
+	},
+	"metrics": {
+		"type": "http_server",
+		"http_server": {},
+		"prefix": "benthos"
+	},
+	"tracer": {
+		"type": "none",
+		"none": {}
+	},
+	"shutdown_timeout": "20s"
+}

@@ -89,6 +89,7 @@ const (
 	TypeSTDIN           = "stdin"
 	TypeWebsocket       = "websocket"
 	TypeZMQ4            = "zmq4"
+	TypeYouZanNSQ       = "you_zan_nsq"
 )
 
 //------------------------------------------------------------------------------
@@ -126,6 +127,7 @@ type Config struct {
 	Websocket       reader.WebsocketConfig       `json:"websocket" yaml:"websocket"`
 	ZMQ4            *reader.ZMQ4Config           `json:"zmq4,omitempty" yaml:"zmq4,omitempty"`
 	Processors      []processor.Config           `json:"processors" yaml:"processors"`
+	YouZanNSQ       reader.YouZanNSQConfig       `json:"you_zan_nsq" yaml:"you_zan_nsq"`
 }
 
 // NewConfig returns a configuration struct fully populated with default values.
@@ -162,6 +164,7 @@ func NewConfig() Config {
 		Websocket:       reader.NewWebsocketConfig(),
 		ZMQ4:            reader.NewZMQ4Config(),
 		Processors:      []processor.Config{},
+		YouZanNSQ:       reader.NewYouZanNSQConfig(),
 	}
 }
 
