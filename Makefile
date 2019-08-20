@@ -54,12 +54,12 @@ docker-cgo-tags:
 	@echo "latest-cgo,$(VER_CUT)-cgo,$(VER_MAJOR).$(VER_MINOR)-cgo,$(VER_MAJOR)-cgo" > .tags
 
 docker: deps
-	@docker build -f ./resources/docker/Dockerfile . -t jeffail/benthos:$(VER_CUT)
-	@docker tag jeffail/benthos:$(VER_CUT) jeffail/benthos:latest
+	@docker build -f ./resources/docker/Dockerfile . -t jessynt/benthos:$(VER_CUT)
+	@docker tag jessynt/benthos:$(VER_CUT) jessynt/benthos:latest
 
 docker-cgo: deps
-	@docker build -f ./resources/docker/Dockerfile.cgo . -t jeffail/benthos:$(VER_CUT)-cgo
-	@docker tag jeffail/benthos:$(VER_CUT)-cgo jeffail/benthos:latest-cgo
+	@docker build -f ./resources/docker/Dockerfile.cgo . -t jessynt/benthos:$(VER_CUT)-cgo
+	@docker tag jessynt/benthos:$(VER_CUT)-cgo jessynt/benthos:latest-cgo
 
 fmt:
 	@go list -f {{.Dir}} ./... | xargs -I{} gofmt -w -s {}
